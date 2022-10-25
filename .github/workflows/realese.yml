@@ -21,7 +21,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       
       - name: biuld
-      - run: |
+        run: |
           npm i
           npm ci
           npm run lint
