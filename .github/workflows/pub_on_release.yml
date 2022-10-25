@@ -13,3 +13,8 @@ jobs:
     # steps:
     # - name: test
     #   run:  echo ${{ secrets.TOKEN }} 
+    steps:
+      - name: build
+      - run: |
+          npm ci
+          npm run lint
