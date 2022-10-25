@@ -1,24 +1,19 @@
-name: realese
+# Name of the workflow
+name: Release
 
+# Run on every commit tag which begins with "v" (e.g., "v0.1.4")
 on:
   push:
     tags:
       - "v*"
 
+# Automatically create a GitHub Release, with release details specified (the relevant commits)
 jobs:
-  run_tests:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 16.x ]
+  release:
+    name: "Release"
+    runs-on: "ubuntu-latest"
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: |
-          npm i
-          npm ci
-          npm run lint
-          npm run build
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
