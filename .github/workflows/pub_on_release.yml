@@ -14,7 +14,7 @@ jobs:
     # - name: test
     #   run:  echo ${{ secrets.TOKEN }} 
     steps:
-      - name: build
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
       - run: |
-          npm ci
-          npm run lint
+          npm run build
