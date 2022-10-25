@@ -1,9 +1,9 @@
-name: tests
+name: realese
 
 on:
   push:
     tags:
-       - '!refs/tags/*'
+    - v*
 
 jobs:
   run_tests:
@@ -18,5 +18,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: |
+          npm i
           npm ci
           npm run lint
+          npm run build
