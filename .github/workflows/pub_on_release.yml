@@ -5,7 +5,7 @@ on:
 
 jobs:
   build_and_pub:
-    needs: [run_tests]:
+    needs: [run_tests]
     runs-on: ubuntu-latest
     strategy:
       matrix:
