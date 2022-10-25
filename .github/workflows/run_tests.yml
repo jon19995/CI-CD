@@ -14,17 +14,10 @@ jobs:
       matrix:
         node-version: [ 16.x ]
     steps:
-      - name: list1
-      - run: ls -la
-      
       - name: checkout1
       - uses: actions/checkout@v1
-
-      - name: list2
-      - run: ls -la
-
-      - name: checkout2
       - uses: actions/checkout@v1
+      - run: ls -la
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
