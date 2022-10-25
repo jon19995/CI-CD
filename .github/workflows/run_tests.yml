@@ -1,32 +1,57 @@
-name: tests
+name: Hello
 
 on:
-  push
+  push:
+    inputs:
+      Name:
+        description: Who to greet
+        required: true
+        default: 'GitHub Actions'
 
 jobs:
-  run_tests:
+  Hello:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 16.x ]
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Hello
+        uses: ./.github/actions/hello
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: |
-          npm ci
-          npm run lint
-  build_and_pub:
-    needs: [run_tests]
-    runs-on: [ubuntu-latest]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: |
-          npm i
-          npm run build
+          Name: ${{ github.event.inputs.Name }}
+
+
+
+# name: tests
+
+# on:
+#   push
+
+# jobs:
+#   run_tests:
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         node-version: [ 16.x ]
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Use Node.js ${{ matrix.node-version }}
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#       - run: |
+#           npm ci
+#           npm run lint
+#   build_and_pub:
+#     needs: [run_tests]
+#     runs-on: [ubuntu-latest]
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Use Node.js ${{ matrix.node-version }}
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#       - run: |
+#           npm i
+#           npm run build
