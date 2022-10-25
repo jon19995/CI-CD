@@ -1,0 +1,18 @@
+[33mcommit 5c27e05632d69b892bede94771c1cc22cec7d978[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;33mtag: rc0.0.0[m[33m)[m
+Author: Evgenii <jon199995@gmail.com>
+Date:   Tue Oct 25 20:37:02 2022 +0300
+
+    bug fixed
+
+[1mdiff --git a/src/App.css b/src/App.css[m
+[1mindex 74b5e05..06a5a79 100644[m
+[1m--- a/src/App.css[m
+[1m+++ b/src/App.css[m
+[36m@@ -7,6 +7,7 @@[m
+   pointer-events: none;[m
+ }[m
+ [m
+[32m+[m
+ @media (prefers-reduced-motion: no-preference) {[m
+   .App-logo {[m
+     animation: App-logo-spin infinite 20s linear;[m
