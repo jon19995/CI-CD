@@ -21,12 +21,6 @@ jobs:
   build_and_pub:
     needs: [run_tests]
     runs-on: [ubuntu-latest]
-    strategy:
-      matrix:
-        node-version: [ 16.x ]
-    # steps:
-    # - name: test
-    #   run:  echo ${{ secrets.TOKEN }} 
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
