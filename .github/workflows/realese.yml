@@ -3,7 +3,7 @@ name: realese
 on:
   push:
     tags:
-      - v*
+      - "v*"
 
 jobs:
   run_tests:
