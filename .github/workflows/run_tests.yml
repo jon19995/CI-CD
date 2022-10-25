@@ -20,11 +20,11 @@ jobs:
       - name: checkout1
         uses: actions/checkout@v1
         
-      - name: checkout2
-        uses: actions/checkout@v1
-
       - name: test script
         run: ls -la
+
+      - name: checkout2
+        uses: actions/checkout@v1
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
